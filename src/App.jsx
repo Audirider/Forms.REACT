@@ -1,122 +1,173 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState("");
+function handleSubmit(e) {
+  e.preventDefault();
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+  alert(`Welcome ${name}!`);
 }
+  return (
+    <div className="container">
+      <h1>Student Registration Form</h1>
 
-export default App
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+  <label>Full Name</label>
+  <input
+  type="text"
+  placeholder="Enter your full name"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+  />
+</div>
+
+<div className="form-group">
+  <label>Email Address</label>
+
+  <input
+    type="email"
+    placeholder="Enter your email"
+  />
+  <div className="form-group">
+  <label>Password</label>
+
+  <input
+    type="password"
+    placeholder="Enter your password"
+  />
+</div>
+<div className="form-group">
+  <label>Phone Number</label>
+
+  <input
+    type="tel"
+    placeholder="08012345678"
+  />
+</div>
+<div className="form-group">
+  <label>Date of Birth</label>
+
+  <input type="date" />
+</div>
+<div className="form-group">
+  <label>Age</label>
+
+  <input
+    type="number"
+    placeholder="Enter your age"
+  />
+</div>
+<div className="form-group">
+  <label>Gender</label>
+
+  <div className="radio-group">
+
+    <label>
+      <input type="radio" name="gender" value="male" />
+      Male
+    </label>
+
+    <label>
+      <input type="radio" name="gender" value="female" />
+      Female
+    </label>
+
+    <label>
+      <input type="radio" name="gender" value="other" />
+      Other
+    </label>
+
+  </div>
+</div>
+<div className="form-group">
+  <label>Hobbies</label>
+
+  <div className="checkbox-group">
+
+    <label>
+      <input type="checkbox" value="coding" />
+      Coding
+    </label>
+
+    <label>
+      <input type="checkbox" value="music" />
+      Music
+    </label>
+
+    <label>
+      <input type="checkbox" value="sports" />
+      Sports
+    </label>
+
+    <label>
+      <input type="checkbox" value="gaming" />
+      Gaming
+    </label>
+
+  </div>
+</div>
+<div className="form-group">
+  <label>Country</label>
+
+  <select>
+    <option value="">Select your country</option>
+    <option value="nigeria">Nigeria</option>
+    <option value="ghana">Ghana</option>
+    <option value="kenya">Kenya</option>
+    <option value="south-africa">South Africa</option>
+  </select>
+</div>
+<div className="form-group">
+  <label>About You</label>
+
+  <textarea
+    rows="5"
+    placeholder="Tell us something about yourself..."
+  ></textarea>
+</div>
+<div className="form-group">
+  <label>Profile Picture</label>
+
+  <input type="file" />
+</div>
+<div className="form-group">
+  <label>Programming Experience</label>
+
+  <input
+    type="range"
+    min="0"
+    max="10"
+  />
+</div>
+<div className="form-group">
+  <label>Favorite Color</label>
+
+  <input type="color" />
+</div>
+<div className="form-group">
+  <label>
+    <input type="checkbox" />
+
+    I agree to the Terms and Conditions
+  </label>
+</div>
+<div className="button-group">
+
+  <button type="submit">
+    Submit
+  </button>
+
+  <button type="reset">
+    Reset
+  </button>
+
+</div>
+</div>
+  </form>
+    </div>
+    
+  );
+}
+export default App;
